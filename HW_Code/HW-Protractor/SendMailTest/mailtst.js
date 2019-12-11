@@ -1,5 +1,3 @@
-let keyCheck;
-
 const waitForVisibleElement = (element, timeout, field) => { //awaiting visibility of element
   let until = protractor.ExpectedConditions;
   browser.wait(until.visibilityOf(element), timeout, `Waiting for ${field} visible failed`);
@@ -37,7 +35,8 @@ describe('Test send mail with Protractor', function () {
 
     element(by.name('to')).sendKeys('nalex7415@gmail.com');
     element(by.name('subjectbox')).sendKeys('test-letter');
-    $(`div[aria-label='Message Body']`).sendKeys(`${keyCheck = 100000000000000000 * Math.random().toString()}`);
+    const keyCheck = (Math.floor(Math.random() * 100000)).toString();
+    $(`div[aria-label='Message Body']`).sendKeys(`${keyCheck}`);
     element(by.css('div[aria-label="Send ‪(Ctrl-Enter)‬"]')).click();
 
     //waitForVisibleElement(by.xpath('//div[contains(text(), "Compose")]'), 5000, 'Compose Button');
