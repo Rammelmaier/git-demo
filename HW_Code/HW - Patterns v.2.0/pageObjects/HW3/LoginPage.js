@@ -20,7 +20,7 @@ class LoginPage {
   }
 
   enterLogin(login) {
-    waitForVisibleElement(this.loginInput, 5000, 'login');
+    waitForVisibleElement(this.loginInput, 'login');
     this.loginInput.sendKeys(login);
   }
 
@@ -29,7 +29,7 @@ class LoginPage {
   }
 
   enterPassword(password) {
-    waitForVisibleElement(this.passwordInput, 5000, 'password');
+    waitForVisibleElement(this.passwordInput, 'password');
     this.passwordInput.sendKeys(password);
   }
 
