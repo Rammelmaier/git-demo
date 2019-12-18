@@ -7,6 +7,6 @@ exports.config = {
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   directConnect: true,
   //allScriptsTimeout: 5000,
-  specs: ['mailtst.js'],
+  specs: [''],
   SELENIUM_PROMISE_MANAGER: true,
 }
