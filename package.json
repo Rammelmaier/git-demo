@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "webdriver-update": "webdriver-manager update",
-    "lint": "eslint *.js",
+    "lint": "eslint **/*.js",
     "test": "protractor conf.js"
   },
   "author": "",
