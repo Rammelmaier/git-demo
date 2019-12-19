@@ -19,12 +19,12 @@ class MailPage {
     return element(by.css('div[aria-label="Send ‪(Ctrl-Enter)‬"]'));
   }
 
-  enterDataTo(mailto) {
-    this.sendTo.sendKeys(mailto);
+  enterDataTo(enterRecipient) {
+    this.sendTo.sendKeyse(enterRecipient);
   }
 
-  enterDataSubject(subject) {
-    this.subjectBox.sendKeys(subject);
+  enterDataSubject(enterSubject) {
+    this.subjectBox.sendKeys(enterSubject);
   }
 
   enterMessage(message) {

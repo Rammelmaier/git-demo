@@ -1,4 +1,4 @@
-class Services {
+class Steps {
   constructor() {}
 
   openPage(source) {
@@ -6,4 +6,4 @@ class Services {
   }
 }
 
-export default new Services();
+export default new Steps();

@@ -1,7 +1,7 @@
 import LoginPage from '../../pageObjects/HW3/LoginPage';
 import InboxPage from '../../pageObjects/HW3/InboxPage';
 import MailPage from '../../pageObjects/HW3/MailPage';
-import Services from '../../pageObjects/HW3/Services';
+import Steps from '../../pageObjects/HW3/Steps';
 
 const URL = 'https://gmail.com';
 const EXPECT_BROWSER_TITLE = 'Gmail';
@@ -14,7 +14,7 @@ const MAIL_MESSAGE = Math.floor(Math.random() * 100000).toString();
 describe('Test send mail with Protractor', function() {
   it('chrome should open login page', function() {
     browser.waitForAngularEnabled(false);
-    Services.openPage(URL);
+    Steps.openPage(URL);
     expect(browser.getTitle()).toEqual(EXPECT_BROWSER_TITLE);
   });
 
