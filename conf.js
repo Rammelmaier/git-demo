@@ -1,12 +1,16 @@
-// conf.js
+require('babel-register')({
+  presets: ['babel-preset-env'],
+});
+
 exports.config = {
   framework: 'jasmine',
   capabilities: {
-    'browserName': 'chrome'
-  } ,
+    browserName: 'chrome',
+  },
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   directConnect: true,
   //allScriptsTimeout: 5000,
-  specs: ['mailtst.js'],
+  specs: [''],
+  // specs: ['HW_Code/**/tests/**/*.js'],
   SELENIUM_PROMISE_MANAGER: true,
-}
+};
