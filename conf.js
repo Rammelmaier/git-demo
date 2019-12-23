@@ -5,7 +5,7 @@ require('babel-register')({
 exports.config = {
   framework: 'jasmine',
   capabilities: {
-    browserName: 'chrome',
+    browserName: 'firefox',
   },
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   directConnect: true,
