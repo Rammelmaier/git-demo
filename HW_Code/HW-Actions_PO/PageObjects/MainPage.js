@@ -13,6 +13,10 @@ class MainPage extends AbstractPage {
   openDraggablePage(url) {
     this.openPage(url);
   }
+
+  openDroppablePage(url) {
+    this.openPage(url);
+  }
 }
 
 export default new MainPage();

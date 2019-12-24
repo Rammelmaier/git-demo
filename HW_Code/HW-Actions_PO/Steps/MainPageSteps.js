@@ -14,6 +14,11 @@ class MainPageSteps {
   openDraggablePage() {
     MainPage.openDraggablePage(PAGES.DRAGGABLE_PAGE_URL);
   }
+
+  openDroppablePage() {
+    MainPage.openDroppablePage(PAGES.DROPPABLE_PAGE_URL);
+  }
+
 }
 
 export default new MainPageSteps();

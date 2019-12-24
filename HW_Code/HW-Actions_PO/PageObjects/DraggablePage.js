@@ -18,12 +18,17 @@ class DraggablePage extends AbstractPage {
     this.switchToFrame(this.draggableFrameLocator);
   }
 
-  mooveElement() {
+  moveElement() {
     browser.actions().
     mouseDown(this.draggableElement).
     mouseMove({x:120, y:120}).
     mouseUp().
     perform();
+  }
+
+  getCoordinatesOfElement() {
+    let regExpRule = /(left: 120px; top: 120px)/;
+    this.getAtributeParameter(this.draggableElement, 'style', regExpRule);
   }
 }
 
