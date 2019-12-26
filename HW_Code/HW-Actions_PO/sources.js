@@ -1,7 +1,8 @@
 const PAGES = {
   MAIN_PAGE_URL: 'https://jqueryui.com/',
-  DRAGGABLE_PAGE_URL: 'https://jqueryui.com/draggable/',
-  DROPPABLE_PAGE_URL: 'https://jqueryui.com/droppable/',
+  // DRAGGABLE_PAGE_URL: 'https://jqueryui.com/draggable/',
+  // DROPPABLE_PAGE_URL: 'https://jqueryui.com/droppable/',
+  // RESIZIBLE_PAGE_URL: 'https://jqueryui.com/resizable/',
 };
 
 const EXPECTED = {

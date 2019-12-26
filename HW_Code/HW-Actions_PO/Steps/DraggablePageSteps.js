@@ -3,7 +3,7 @@ import DraggablePage from '../PageObjects/DraggablePage';
 class DraggablePageSteps {
   constructor() {}
 
-  performdraggableAction() {
+  performDraggableAction() {
     DraggablePage.switchFrameToDraggable();
     DraggablePage.moveElement();
   }

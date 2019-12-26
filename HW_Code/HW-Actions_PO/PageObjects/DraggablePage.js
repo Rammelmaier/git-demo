@@ -27,8 +27,12 @@ class DraggablePage extends AbstractPage {
   }
 
   getCoordinatesOfElement() {
-    let regExpRule = /(left: 120px; top: 120px)/;
-    this.getAtributeParameter(this.draggableElement, 'style', regExpRule);
+    let regExp = /(left: 120px; top: 120px)/;
+    this.getAttributeParameter(this.draggableElement, 'style', regExp);
+  }
+
+  toMainFrame() {
+    this.switchToParentFrame();
   }
 }
 

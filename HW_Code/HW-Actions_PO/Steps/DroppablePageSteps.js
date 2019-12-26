@@ -3,7 +3,7 @@ import DroppablePage from '../PageObjects/DroppablePage';
 class DroppablePageSteps {
   constructor() {}
 
-  performdroppableAction() {
+  performDroppableAction() {
     DroppablePage.switchFrameToDroppable();
     DroppablePage.moveElement();
   }

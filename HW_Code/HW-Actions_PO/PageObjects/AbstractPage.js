@@ -13,14 +13,13 @@ class AbstractPage {
     browser.switchTo().frame(frameLocator.getWebElement());
   }
 
-  getAtributeParameter(locator, attributeType, regExpRuleProcessing) {
-    let el = locator.getAttribute(attributeType);
-    return el.getText().then(txt => txt.match(regExpRuleProcessing));
+  getAttributeParameter(locator, attributeType, regExp) {
+    let attribute = locator.getAttribute(attributeType);
+    return attribute.getText().then(txt => txt.match(regExp));
   }
 
-  textIsPresentinElement(elem, textIsPresent) {
-    let EC = protractor.ExpectedConditions;
-    return browser.wait(EC.textToBePresentInElement(elem, textIsPresent), 5000);
+  switchToParentFrame() {
+    browser.switchTo().defaultContent();
   }
 }
 

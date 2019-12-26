@@ -1,24 +1,24 @@
 import MainPage from '../PageObjects/MainPage';
-import { PAGES, EXPECTED } from '../sources';
-import DraggablePage from '../PageObjects/DraggablePage';
-//import { MAIN_PAGE_URL, DRAGGABLE_PAGE_URL } from '../sources';
+import { PAGES } from '../sources';
 
 class MainPageSteps {
   constructor() {}
 
   openMainPage() {
     MainPage.openMainPage(PAGES.MAIN_PAGE_URL);
-    //MainPage.openChildPage(PAGES.DRAGGABLE_PAGE_URL);
   }
 
   openDraggablePage() {
-    MainPage.openDraggablePage(PAGES.DRAGGABLE_PAGE_URL);
+    MainPage.openDraggablePage();
   }
 
   openDroppablePage() {
-    MainPage.openDroppablePage(PAGES.DROPPABLE_PAGE_URL);
+    MainPage.openDroppablePage();
   }
 
+  openResizablePage() {
+    MainPage.openResizablePage();
+  }
 }
 
 export default new MainPageSteps();

@@ -1,5 +1,6 @@
 import AbstractPage from './AbstractPage';
 import { $, element } from 'protractor';
+import { textIsPresentinElement } from '../Helpers/waiters';
 
 class DroppablePage extends AbstractPage {
   constructor() {
@@ -11,7 +12,7 @@ class DroppablePage extends AbstractPage {
   }
 
   get droppableFrameLocator() {
-    return $('iframe[src="/resources/demos/droppable/default.html"]');
+    return $('iframe[class="demo-frame"]');
   }
 
   get draggableElement() {
@@ -26,17 +27,12 @@ class DroppablePage extends AbstractPage {
     return element(by.xpath('//*[@id="droppable"]/p'));
   }
 
-  textIsPresent() {
-    let EC = protractor.ExpectedConditions;
-    return browser.wait(EC.textToBePresentInElement(this.pageElement, 'Droppable'), 5000);
-  }
-
   droppablePageTextIsPresent() {
-    return this.textIsPresentinElement(this.pageElement, 'Droppable');
+    return textIsPresentinElement(this.pageElement, 'Droppable');
   }
 
   afterTestTextisPresent() {
-    return this.textIsPresentinElement(this.droppableLabelElement, 'Dropped!'); // condition doesnt work. test is passed sucessfully anyway
+    return textIsPresentinElement(this.droppableLabelElement, 'Dropped!'); // condition doesnt work. test is passed sucessfully anyway
   }
 
   switchFrameToDroppable() {
@@ -49,6 +45,10 @@ class DroppablePage extends AbstractPage {
     mouseMove(this.droppableElement).
     mouseUp().
     perform();
+  }
+
+  toMainFrame() {
+    this.switchToParentFrame();
   }
 }
 
