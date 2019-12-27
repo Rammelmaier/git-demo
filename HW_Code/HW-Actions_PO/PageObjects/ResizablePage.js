@@ -15,13 +15,17 @@ class ResizablePage extends AbstractPage {
     return $('iframe[class="demo-frame"]');
   }
 
-  get resizableElementAxisY() {
-    return $('div[class="ui-resizable-handle ui-resizable-e"]');
+  get resizableElement() {
+    return $('div[id="resizable"]');
   }
 
-  get resizableElementAxisX() {
-    return $('div[class="ui-resizable-handle ui-resizable-s"]');
-  }
+  // get resizableElementAxisY() {
+  //   return $('div[class="ui-resizable-handle ui-resizable-e"]');
+  // }
+
+  // get resizableElementAxisX() {
+  //   return $('div[class="ui-resizable-handle ui-resizable-s"]');
+  // }
 
   get resizableElementAxisXY() {
     return $('div[class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"]');
@@ -34,29 +38,20 @@ class ResizablePage extends AbstractPage {
     return textIsPresentinElement(this.pageElement, 'Resizable');
   }
 
-  moveElementAxisX() {
-    browser.actions().
-    mouseDown(this.resizableElementAxisX).
-    mouseMove({x:100, y:0}).mouseUp().
-    perform();
+  resizeElement(x, y) {
+    browser.actions()
+      .mouseDown(this.resizableElementAxisXY)
+      .mouseMove({x:x, y:y}).mouseUp()
+      .perform();
   }
 
-  moveElementAxisY() {
-    browser.actions().
-    mouseDown(this.resizableElementAxisY).
-    mouseMove({x:0, y:100}).mouseUp().
-    perform();
+  toPageFrame() {
+    this.switchToPageFrame();
   }
 
-  moveElementAxisXY() {
-    browser.actions().
-    mouseDown(this.resizableElementAxisXY).
-    mouseMove({x:75, y:75}).mouseUp().
-    perform();
-  }
-
-  toMainFrame() {
-    this.switchToParentFrame();
+  getCoordinatesOfElement() {
+    let regExp = /(left: 250px; top: 300px;)/;
+    return this.getAttributeParameter(this.resizableElement, 'style', regExp);
   }
 }
 

@@ -40,15 +40,15 @@ class DroppablePage extends AbstractPage {
   }
 
   moveElement() {
-    browser.actions().
-    mouseDown(this.draggableElement).
-    mouseMove(this.droppableElement).
-    mouseUp().
-    perform();
+    browser.actions()
+      .mouseDown(this.draggableElement)
+      .mouseMove(this.droppableElement)
+      .mouseUp()
+      .perform();
   }
 
-  toMainFrame() {
-    this.switchToParentFrame();
+  toPageFrame() {
+    this.switchToPageFrame();
   }
 }
 

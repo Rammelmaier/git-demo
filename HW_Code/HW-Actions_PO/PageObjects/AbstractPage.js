@@ -14,11 +14,10 @@ class AbstractPage {
   }
 
   getAttributeParameter(locator, attributeType, regExp) {
-    let attribute = locator.getAttribute(attributeType);
-    return attribute.getText().then(txt => txt.match(regExp));
+    return locator.getAttribute(attributeType).then(txt => txt.match(regExp)[0]);
   }
 
-  switchToParentFrame() {
+  switchToPageFrame() {
     browser.switchTo().defaultContent();
   }
 }
