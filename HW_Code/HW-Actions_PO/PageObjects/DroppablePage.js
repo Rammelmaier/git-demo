@@ -40,7 +40,8 @@ class DroppablePage extends AbstractPage {
   }
 
   moveElement() {
-    browser.actions()
+    browser
+      .actions()
       .mouseDown(this.draggableElement)
       .mouseMove(this.droppableElement)
       .mouseUp()

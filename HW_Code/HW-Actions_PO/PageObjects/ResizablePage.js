@@ -19,14 +19,6 @@ class ResizablePage extends AbstractPage {
     return $('div[id="resizable"]');
   }
 
-  // get resizableElementAxisY() {
-  //   return $('div[class="ui-resizable-handle ui-resizable-e"]');
-  // }
-
-  // get resizableElementAxisX() {
-  //   return $('div[class="ui-resizable-handle ui-resizable-s"]');
-  // }
-
   get resizableElementAxisXY() {
     return $('div[class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"]');
   }
@@ -39,9 +31,11 @@ class ResizablePage extends AbstractPage {
   }
 
   resizeElement(x, y) {
-    browser.actions()
+    browser
+      .actions()
       .mouseDown(this.resizableElementAxisXY)
-      .mouseMove({x:x, y:y}).mouseUp()
+      .mouseMove({x:x, y:y})
+      .mouseUp()
       .perform();
   }
 

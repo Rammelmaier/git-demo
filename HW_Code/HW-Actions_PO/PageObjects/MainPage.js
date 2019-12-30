@@ -18,6 +18,18 @@ class MainPage extends AbstractPage {
     return $('a[href="https://jqueryui.com/resizable/"]');
   }
 
+  get selectablePageButton() {
+    return $('a[href="https://jqueryui.com/selectable/"]');
+  }
+
+  get checkboxradioPageButton() {
+    return $('a[href="https://jqueryui.com/checkboxradio/"]');
+  }
+
+  get selectmenuPageButton() {
+    return $('a[href="https://jqueryui.com/selectmenu/"]');
+  }
+
   openMainPage(url) {
     this.openPage(url);
   }
@@ -32,6 +44,18 @@ class MainPage extends AbstractPage {
 
   openResizablePage() {
     this.resizablePageButton.click();
+  }
+
+  openSelectablePage() {
+    this.selectablePageButton.click();
+  }
+
+  openCheckboxradioPage() {
+    this.checkboxradioPageButton.click();
+  }
+
+  openSelectmenuPage() {
+    this.selectmenuPageButton.click();
   }
 }
 

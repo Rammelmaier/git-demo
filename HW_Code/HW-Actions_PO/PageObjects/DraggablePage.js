@@ -23,11 +23,12 @@ class DraggablePage extends AbstractPage {
   }
 
   moveElement() {
-    browser.actions().
-    mouseDown(this.draggableElement).
-    mouseMove({x:X, y:Y}).
-    mouseUp().
-    perform();
+    browser
+      .actions()
+      .mouseDown(this.draggableElement)
+      .mouseMove({x:X, y:Y})
+      .mouseUp()
+      .perform();
   }
 
   getCoordinatesOfElement() {

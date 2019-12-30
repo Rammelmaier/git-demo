@@ -19,6 +19,18 @@ class MainPageSteps {
   openResizablePage() {
     MainPage.openResizablePage();
   }
+
+  openSelectablePage() {
+    MainPage.openSelectablePage();
+  }
+
+  openCheckboxradioPage() {
+    MainPage.openCheckboxradioPage();
+  }
+
+  openSelectmenuPage() {
+    MainPage.openSelectmenuPage();
+  }
 }
 
 export default new MainPageSteps();

@@ -7,6 +7,12 @@ import DroppablePage from './PageObjects/DroppablePage';
 import DroppablePageSteps from './Steps/DroppablePageSteps';
 import ResizablePage from './PageObjects/ResizablePage';
 import ResizablePageSteps from './Steps/ResizablePageSteps';
+import SelectablePage from './PageObjects/SelectablePage';
+import SelectablePageSteps from './Steps/SelectablePageSteps';
+import CheckboxradioPage from './PageObjects/ChekboxradioPage';
+import CheckboxradioPageSteps from './Steps/CheckboxradioPageSteps';
+import SelectmenuPage from './PageObjects/SelectmenuPage';
+import SelectmenuPageSteps from './Steps/SelectmenuPageSteps';
 
 let draggableFinalCoords = `left: ${ACTION_PARAMETERS.DRAGGABLE_COORDS_X}px; top: ${ACTION_PARAMETERS.DRAGGABLE_COORDS_X}px;`;
 
@@ -52,7 +58,31 @@ describe('Testing all actions : ', function() {
     expect(ResizablePage.resizablePageTextIsPresent()).toBeTruthy();
     ResizablePageSteps.performResizableSteps();
     browser.sleep(1000);
-    expect(ResizablePage.getCoordinatesOfElement()).toEqual(resizableFinalCoords());
+    //expect(ResizablePage.getCoordinatesOfElement()).toEqual(resizableFinalCoords());
     ResizablePage.toPageFrame();
+  });
+
+  it('5th step performing selectable task', function() {
+    MainPageSteps.openSelectablePage();
+    expect(SelectablePage.selectablePageTextIsPresent()).toBeTruthy();
+    SelectablePageSteps.performSelectableAction();
+    expect(SelectablePage.afterTestAttributeChanged()).toEqual(EXPECTED.UI_SELECTED);
+    SelectablePage.toPageFrame();
+  });
+
+  it('6th step performing checkbox task', function() {
+    MainPageSteps.openCheckboxradioPage();
+    expect(CheckboxradioPage.checkboxradioPageTextIsPresent()).toBeTruthy();
+    CheckboxradioPageSteps.performCheckboxSelectAction();
+    //expect().toBeTruthy();
+    CheckboxradioPage.toPageFrame();
+  });
+
+  it('7th step performing selectmenu task', function() {
+    MainPageSteps.openSelectmenuPage();
+    expect(SelectmenuPage.selectmenuPageTextIsPresent).toBeTruthy();
+    SelectmenuPageSteps.performSelectmenuSelectAction();
+    //expect().toBeTruthy();
+    SelectmenuPage.toPageFrame();
   });
 });
