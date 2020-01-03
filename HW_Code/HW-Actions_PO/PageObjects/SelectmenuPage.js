@@ -51,7 +51,7 @@ class SelectmenuPage extends AbstractPage {
     browser
       .actions()
       .click(selectmenu)
-      .mouseMove({x:X, y:Y})
+      .mouseMove({ x: X, y: Y })
       .mouseDown()
       //.mouseMove(item)
       .mouseUp()

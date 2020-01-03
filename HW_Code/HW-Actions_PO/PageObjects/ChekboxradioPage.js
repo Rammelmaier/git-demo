@@ -59,6 +59,35 @@ class ChekboxradioPage extends AbstractPage {
     this.selectElement(this.bedTypeCheckbox);
   }
 
+  afterTestAttributeChanged(selector) {
+    let regExp = /(ui-state-active)/;
+    return expect(this.getAttributeParameter(selector, 'class', regExp)).toEqual('ui-state-active');
+  }
+
+  locationRadiobuttonActive() {
+    return this.afterTestAttributeChanged(this.locationRadioButton);
+  }
+
+  hotelCheckboxActive() {
+    return this.afterTestAttributeChanged(this.hotelRatingChecbox);
+  }
+
+  bedCheckboxActive() {
+    return this.afterTestAttributeChanged(this.bedTypeCheckbox);
+  }
+
+  allElementsActive() {
+    if (
+      this.locationRadiobuttonActive() == true &&
+      this.hotelCheckboxActive() == true &&
+      this.bedCheckboxActive() == true
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   toPageFrame() {
     this.switchToPageFrame();
   }

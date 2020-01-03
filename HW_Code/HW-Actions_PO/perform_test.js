@@ -74,7 +74,7 @@ describe('Testing all actions : ', function() {
     MainPageSteps.openCheckboxradioPage();
     expect(CheckboxradioPage.checkboxradioPageTextIsPresent()).toBeTruthy();
     CheckboxradioPageSteps.performCheckboxSelectAction();
-    //expect().toBeTruthy();
+    expect(CheckboxradioPage.allElementsActive()).toEqual('true');
     CheckboxradioPage.toPageFrame();
   });
 

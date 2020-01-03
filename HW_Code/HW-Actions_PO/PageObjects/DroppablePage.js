@@ -24,7 +24,7 @@ class DroppablePage extends AbstractPage {
   }
 
   get droppableLabelElement() {
-    return element(by.xpath('//*[@id="droppable"]/p'));
+    return $('#droppable p');
   }
 
   droppablePageTextIsPresent() {

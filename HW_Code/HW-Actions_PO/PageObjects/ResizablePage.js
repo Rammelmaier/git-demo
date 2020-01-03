@@ -20,7 +20,7 @@ class ResizablePage extends AbstractPage {
   }
 
   get resizableElementAxisXY() {
-    return $('div[class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"]');
+    return $('#resizable div:nth-child(4)');
   }
   switchFrameToResizable() {
     this.switchToFrame(this.resizableFrameLocator);
@@ -34,7 +34,7 @@ class ResizablePage extends AbstractPage {
     browser
       .actions()
       .mouseDown(this.resizableElementAxisXY)
-      .mouseMove({x:x, y:y})
+      .mouseMove({ x: x, y: y })
       .mouseUp()
       .perform();
   }

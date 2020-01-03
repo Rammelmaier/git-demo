@@ -11,7 +11,7 @@ class DraggablePage extends AbstractPage {
   }
 
   get draggableFrameLocator() {
-    return element(by.css('iframe[class="demo-frame"]'));
+    return $('iframe[class="demo-frame"]');
   }
 
   get draggableElement() {
@@ -26,7 +26,7 @@ class DraggablePage extends AbstractPage {
     browser
       .actions()
       .mouseDown(this.draggableElement)
-      .mouseMove({x:X, y:Y})
+      .mouseMove({ x: X, y: Y })
       .mouseUp()
       .perform();
   }

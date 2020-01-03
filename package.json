@@ -21,11 +21,16 @@
     "eslint-plugin-protractor": "^2.1.1",
     "npm": "^6.13.4",
     "prettier": "^1.19.1",
-    "protractor": "^5.4.2"
+    "protractor": "^5.4.2",
+    "webdriver": "^5.18.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Rammelmaier/git-demo/issues"
+  },
+  "homepage": "https://github.com/Rammelmaier/git-demo#readme"
 }

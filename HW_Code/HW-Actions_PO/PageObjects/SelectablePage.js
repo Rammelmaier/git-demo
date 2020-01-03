@@ -16,7 +16,7 @@ class SelectablePage extends AbstractPage {
   }
 
   get selectableElement() {
-    return element(by.xpath('//*[@id="selectable"]/li[3]'));
+    return $('#selectable li:nth-child(3)');
   }
 
   selectablePageTextIsPresent() {
@@ -28,7 +28,8 @@ class SelectablePage extends AbstractPage {
   }
 
   selectElement() {
-    browser.actions()
+    browser
+      .actions()
       .mouseDown(this.selectableElement)
       .mouseUp()
       .perform();
