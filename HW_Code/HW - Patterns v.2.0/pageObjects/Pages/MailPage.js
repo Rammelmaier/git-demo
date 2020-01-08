@@ -8,19 +8,19 @@ class MailPage {
   }
 
   get subjectBox() {
-    return element(by.css('input[name="subjectbox"]'));
+    return $('input[name="subjectbox"]');
   }
 
   get mailBody() {
-    return element(by.css(`div[aria-label='Message Body']`));
+    return $(`div[aria-label='Message Body']`);
   }
 
   get sendButton() {
-    return element(by.css('div[aria-label="Send ‪(Ctrl-Enter)‬"]'));
+    return $('div[aria-label="Send ‪(Ctrl-Enter)‬"]');
   }
 
   enterDataTo(enterRecipient) {
-    this.sendTo.sendKeyse(enterRecipient);
+    this.sendTo.sendKeys(enterRecipient);
   }
 
   enterDataSubject(enterSubject) {

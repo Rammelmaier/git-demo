@@ -12,7 +12,7 @@ class SelectmenuPage extends AbstractPage {
   }
 
   get SelectmenuFrameLocator() {
-    return $('iframe[class="demo-frame"]');
+    return $('iframe.demo-frame');
   }
 
   get speedSelectmenu() {

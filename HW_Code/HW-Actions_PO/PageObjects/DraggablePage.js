@@ -11,11 +11,11 @@ class DraggablePage extends AbstractPage {
   }
 
   get draggableFrameLocator() {
-    return $('iframe[class="demo-frame"]');
+    return $('iframe.demo-frame');
   }
 
   get draggableElement() {
-    return $('div[id="draggable"]');
+    return $('#draggable');
   }
 
   switchFrameToDraggable() {

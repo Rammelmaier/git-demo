@@ -12,11 +12,11 @@ class ResizablePage extends AbstractPage {
   }
 
   get resizableFrameLocator() {
-    return $('iframe[class="demo-frame"]');
+    return $('iframe.demo-frame');
   }
 
   get resizableElement() {
-    return $('div[id="resizable"]');
+    return $('#resizable');
   }
 
   get resizableElementAxisXY() {

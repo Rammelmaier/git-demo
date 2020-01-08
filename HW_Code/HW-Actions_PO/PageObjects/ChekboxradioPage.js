@@ -12,7 +12,7 @@ class ChekboxradioPage extends AbstractPage {
   }
 
   get chekboxradioFrameLocator() {
-    return $('iframe[class="demo-frame"]');
+    return $('iframe.demo-frame');
   }
 
   // get locationRadioButton() {

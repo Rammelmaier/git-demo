@@ -7,11 +7,11 @@ class SelectmenuPageSteps {
   performSelectmenuSelectAction() {
     SelectmenuPage.switchFrameToSelectmenu();
     SelectmenuPage.selectSpeed();
-    browser.sleep(2000);
+    browser.sleep(1000);
     SelectmenuPage.selectNumber();
-    browser.sleep(2000);
+    browser.sleep(1000);
     SelectmenuPage.selectTitle();
-    browser.sleep(2000);
+    browser.sleep(1000);
   }
 }
 

@@ -12,7 +12,7 @@ class SelectablePage extends AbstractPage {
   }
 
   get selectableFrameLocator() {
-    return $('iframe[class="demo-frame"]');
+    return $('iframe.demo-frame');
   }
 
   get selectableElement() {

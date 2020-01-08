@@ -12,15 +12,15 @@ class DroppablePage extends AbstractPage {
   }
 
   get droppableFrameLocator() {
-    return $('iframe[class="demo-frame"]');
+    return $('iframe.demo-frame');
   }
 
   get draggableElement() {
-    return $('div[id="draggable"]');
+    return $('#draggable');
   }
 
   get droppableElement() {
-    return $('div[id="droppable"]');
+    return $('#droppable');
   }
 
   get droppableLabelElement() {

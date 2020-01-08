@@ -12,11 +12,11 @@ class LoginPage {
   }
 
   get passwordInput() {
-    return $('input[type="password"]');
+    return $('input[autocomplete="current-password"]');
   }
 
   get passwordNextButton() {
-    return element(by.xpath('//*[@id="passwordNext"]'));
+    return $('#passwordNext');
   }
 
   enterLogin(login) {
