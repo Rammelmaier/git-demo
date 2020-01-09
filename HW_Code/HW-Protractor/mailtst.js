@@ -1,20 +1,21 @@
-const waitForVisibleElement = (element, timeout, field) => { //awaiting visibility of element
+const waitForVisibleElement = (element, timeout, field) => {
+  //awaiting visibility of element
   let until = protractor.ExpectedConditions;
   browser.wait(until.visibilityOf(element), timeout, `Waiting for ${field} visible failed`);
-}
+};
 
 //  const waitForPresenceElement = (element, timeout, waitFor) => {
 //    browser.wait(expect(element.isPresent()).toBeTruthy(), timeout, `Waiting for ${waitFor} element appear failed`);
 // }
 
-describe('Test send mail with Protractor', function () {
-  it('chrome should open login page', function () {
+describe('Test send mail with Protractor', function() {
+  it('chrome should open login page', function() {
     browser.waitForAngularEnabled(false);
     browser.get('https://gmail.com');
     expect(browser.getTitle()).toEqual('Gmail');
   });
 
-  it('should input credentials and login', function () {
+  it('should input credentials and login', function() {
     $('input[type="email"]').sendKeys('nalex7415@gmail.com');
     $('#identifierNext').click();
 
@@ -26,16 +27,14 @@ describe('Test send mail with Protractor', function () {
     waitForVisibleElement($('a[title="Inbox"]'), 5000, 'Inbox');
 
     expect($('a[title="Inbox"]').isPresent()).toBeTruthy();
-
   });
 
-  it('should mail to someone and check it', function () {
-
+  it('should mail to someone and check it', function() {
     element(by.xpath('//div[contains(text(), "Compose")]')).click();
 
     element(by.name('to')).sendKeys('nalex7415@gmail.com');
     element(by.name('subjectbox')).sendKeys('test-letter');
-    const keyCheck = (Math.floor(Math.random() * 100000)).toString();
+    const keyCheck = Math.floor(Math.random() * 100000).toString();
     $(`div[aria-label='Message Body']`).sendKeys(`${keyCheck}`);
     element(by.css('div[aria-label="Send ‪(Ctrl-Enter)‬"]')).click();
 
@@ -52,7 +51,5 @@ describe('Test send mail with Protractor', function () {
     let checkMail = element(by.cssContainingText('span', `${keyCheck}`));
     expect(checkMail.getText().then(text => text.match(/\d+/)[0])).toEqual(`${keyCheck}`);
     console.log(`keyCheck is + ${keyCheck}`);
-
   });
-
 });

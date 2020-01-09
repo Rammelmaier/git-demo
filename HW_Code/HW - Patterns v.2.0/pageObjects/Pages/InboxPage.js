@@ -30,7 +30,9 @@ class InboxPage {
   }
 
   checkingMailText(text) {
-    const mailText = this.incomeMail(text).getText().then(txt => txt.match(/\d+/)[0]);
+    const mailText = this.incomeMail(text)
+      .getText()
+      .then(txt => txt.match(/\d+/)[0]);
     expect(mailText).toEqual(text);
   }
 }
