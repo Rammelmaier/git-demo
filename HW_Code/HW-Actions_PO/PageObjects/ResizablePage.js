@@ -44,9 +44,19 @@ class ResizablePage extends AbstractPage {
   }
 
   getCoordinatesOfElement() {
-    let regExp = /(left: 250px; top: 300px;)/;
+    let regExp = /(height: 251px; width: 301px;)/;
     return this.getAttributeParameter(this.resizableElement, 'style', regExp);
   }
+
+  // getStartingCoordinates() {
+  //   let regExp = /(\d+)/g;
+  //   return this.getAttributeParameters(this.resizableElement, 'style', regExp);
+  // }
+
+  // getStartCoordinatesOfElement() {
+  //   this.resizeElement(1, 1);
+  //   return this.getStartingCoordinates();
+  // }
 }
 
 export default new ResizablePage();

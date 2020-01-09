@@ -14,6 +14,7 @@ class ResizablePageSteps {
 
   performResizableSteps() {
     ResizablePage.switchFrameToResizable();
+    // ResizablePage.getStartCoordinatesOfElement();
     ResizablePage.resizeElement(x1, y1);
     browser.sleep(1000);
     ResizablePage.resizeElement(x2, y2);

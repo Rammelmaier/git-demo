@@ -17,6 +17,9 @@ class AbstractPage {
     return locator.getAttribute(attributeType).then(txt => txt.match(regExp)[0]);
   }
 
+  getAttributeParameters(locator, attributeType, regExp) {
+    return locator.getAttribute(attributeType).then(txt => txt.match(regExp));
+  }
   switchToPageFrame() {
     browser.switchTo().defaultContent();
   }
