@@ -9,13 +9,6 @@ exports.config = {
     chromeOptions: {
       args: [''],
     },
-
-    // browserSize: value => {
-    //   browser.driver
-    //     .manage()
-    //     .window()
-    //     .setSize(value);
-    // },
   },
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   directConnect: true,

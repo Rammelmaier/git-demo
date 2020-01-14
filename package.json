@@ -6,7 +6,8 @@
   "scripts": {
     "webdriver-update": "webdriver-manager update",
     "lint": "eslint **/*.js",
-    "test": "protractor conf.js"
+    "test": "protractor conf.js",
+    "testcuc": "protractor cucumber-conf.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,8 @@
     "url": "git+https://github.com/Rammelmaier/git-demo.git"
   },
   "dependencies": {
+    "chai": "^4.2.0",
+    "cucumber": "^6.0.5",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.2",
@@ -27,7 +30,8 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0"
+    "babel-register": "^6.26.0",
+    "protractor-cucumber-framework": "^6.2.0"
   },
   "bugs": {
     "url": "https://github.com/Rammelmaier/git-demo/issues"
