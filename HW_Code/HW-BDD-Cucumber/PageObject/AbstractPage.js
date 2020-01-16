@@ -1,8 +1,15 @@
+import { expect } from 'chai';
+
 class AbstractPage {
   constructor() {}
 
-  openPage(url) {
-    browser.get(url);
+  async openPage(url) {
+    await browser.get(url);
+  }
+
+  async checkingTitle(locator, searchKeyWord) {
+    const title = locator.getText();
+    await expect(title).to.include(searchKeyWord);
   }
 
   // getTitle() {

@@ -6,30 +6,32 @@ class MainPage extends AbstractPage {
   constructor() {
     super();
   }
-  openMainPage() {
-    this.openPage('https://www.ebay.com/');
+  async openMainPage() {
+    await this.openPage('https://www.ebay.com/');
   }
 
-  getKeyElement() {
+  get keyElement() {
     return $('a[href="https://www.ebay.com/"]');
   }
 
-  getSearchField() {
+  get searchField() {
     return $('input.ui-autocomplete-input');
   }
 
-  getSearchButton() {
+  get searchButton() {
     return $('input[type="submit"]');
   }
 
-  searchItem(request) {
-    this.getSearchField()
-      .click()
-      .then(this.getSearchField().sendKeys(request));
+  async ebayLogoIsPresent() {
+    return await elementIsPresent(this.keyElement);
   }
 
-  clickSearchButton() {
-    this.getSearchButton().click();
+  async searchItem(request) {
+    await this.searchField.click().then(await this.searchField.sendKeys(request));
+  }
+
+  async clickSearchButton() {
+    await this.searchButton.click();
   }
 }
 

@@ -1,6 +1,11 @@
-const elementIsPresent = (locator, timeout = 5000) => {
+const elementIsPresent = async (locator, timeout = 5000) => {
   let EC = protractor.ExpectedConditions;
-  return browser.wait(EC.presenceOf(locator), timeout);
+  return await browser.wait(await EC.presenceOf(locator), timeout);
 };
 
-export { elementIsPresent };
+const elementIsClickable = async (locator, timeout = 5000) => {
+  let EC = protractor.ExpectedConditions;
+  browser.wait(await EC.elementToBeClickable(locator), timeout);
+};
+
+export { elementIsPresent, elementIsClickable };
