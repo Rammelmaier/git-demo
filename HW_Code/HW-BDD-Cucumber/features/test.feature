@@ -17,4 +17,4 @@ Feature: Add good to cart
    Then I check "TV" in cart appeared
 
   #  run this!
-  #  npm run testcuc -- --specs="HW_Code/HW-BDD-Cucumber/features/outline-test.feature"
+  #  npm run testcuc -- --specs="HW_Code/HW-BDD-Cucumber/features/test.feature"
