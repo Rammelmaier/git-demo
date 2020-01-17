@@ -8,8 +8,9 @@ class AbstractPage {
   }
 
   async checkingTitle(locator, searchKeyWord) {
-    const title = locator.getText();
-    await expect(title).to.include(searchKeyWord);
+    const title = await locator.getText();
+    const keyWord = await searchKeyWord.match(/\w+/)[0];
+    return await expect(title).to.include(keyWord);
   }
 
   // getTitle() {

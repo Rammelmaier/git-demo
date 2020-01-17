@@ -7,6 +7,10 @@ class CartPage extends AbstractPage {
     super();
   }
 
+  get pageElement() {
+    return $('button.call-to-action');
+  }
+
   get itemTitle() {
     return $('[data-test-id="cart-item-link"] span.BOLD');
   }
@@ -17,6 +21,10 @@ class CartPage extends AbstractPage {
 
   get emptyCartIdentifier() {
     return $('div.empty-cart');
+  }
+
+  async cartPageOpened() {
+    return await elementIsPresent(this.pageElement);
   }
 
   async checkCartItem(searchKeyWord) {

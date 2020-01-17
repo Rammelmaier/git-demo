@@ -6,15 +6,20 @@ Feature: Add good to cart
    Given I open eBay main page
    Then Ebay main page opened
 
-  Scenario: Add TV to cart
-   Given I input "TV" to searching bar and click Search button
+  Scenario: Add smartphone to cart
+   Given I input <GoodName> to searching bar and click Search button
    When I wait "3" seconds
    Then I click on first result
-   Then I check result contains "TV"
+   Then I check result contains <GoodName>
    Then I check button add to cart available
    Then I add purchase to cart 
   #  Then I click on cart button 
-   Then I check "TV" in cart appeared
+   Then I check <GoodName> in cart appeared
 
-  #  run this!
-  #  npm run testcuc -- --specs="HW_Code/HW-BDD-Cucumber/features/outline-test.feature"
+ Examples:
+ | GoodName | 
+ | iPhone   |
+ | Android  |
+
+ # run this! 
+ # npm run testcuc -- --specs="HW_Code/HW-BDD-Cucumber/features/outline-test.feature"

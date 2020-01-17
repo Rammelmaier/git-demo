@@ -1,10 +1,14 @@
 import AbstractPage from './AbstractPage';
 import { $ } from 'protractor';
-import { elementIsClickable } from '../Helpers/waiters';
+import { elementIsPresent, elementIsClickable } from '../Helpers/waiters';
 
 class ResultPage extends AbstractPage {
   constructor() {
     super();
+  }
+
+  get pageElement() {
+    return $('#qtyTextBox');
   }
 
   get resultName() {
@@ -12,11 +16,15 @@ class ResultPage extends AbstractPage {
   }
 
   get cartButton() {
-    return $('isCartBtn_btn');
+    return $('#isCartBtn_btn');
   }
 
   get inspectCartButton() {
     return $('svg.gh-cart-icon');
+  }
+
+  async resultPageOpened() {
+    return await elementIsPresent(this.pageElement);
   }
 
   async checkResult(keyWord) {
