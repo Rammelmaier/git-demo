@@ -43,6 +43,11 @@ Then(/I check button add to cart available?/, async function() {
   expect(await RESULTPAGE.addCartClickable()).to.be.true;
 });
 
+Then('I choose {int} and {int}', async function(selecor1, selector2) {
+  await RESULTPAGE.chooseCapacity(selecor1);
+  await RESULTPAGE.chooseCapacity(selector2);
+});
+
 Then(/I add purchase to cart?/, async function() {
   await RESULTPAGE.clickAddCartButton();
 });
