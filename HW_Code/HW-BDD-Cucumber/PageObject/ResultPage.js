@@ -27,7 +27,7 @@ class ResultPage extends AbstractPage {
     return $('#msku-sel-1');
   }
 
-  get colourOption() {
+  get colorOption() {
     return $('msku-sel-2');
   }
 
@@ -43,37 +43,45 @@ class ResultPage extends AbstractPage {
     return await elementIsClickable(this.cartButton);
   }
 
-  async chooseCapacity(selector) {
-    let optionPresent = await elementIsPresent(this.capacityOption);
-    async () => {
-      if (optionPresent == true) {
-        browser
-          .actions()
-          .click(this.capacityOption)
-          .mouseMove({ x: 0, y: 20 + 20 * selector })
-          .mouseUp()
-          .perform();
-      } else {
-        return await console.log('Storage Capacity option is unavailable');
-      }
-    };
+  async setCapacity(selector) {
+    await this.setValue(this.capacityOption, selector, 'Storage Capacity option is unavailable');
   }
 
-  async chooseColour(selector) {
-    let optionPresent = await elementIsPresent(this.colourOption);
-    async () => {
-      if (optionPresent == true) {
-        browser
-          .actions()
-          .click(this.colourOption)
-          .mouseMove({ x: 0, y: 20 + 20 * selector })
-          .mouseUp()
-          .perform();
-      } else {
-        return await console.log('Colour option is unavailable');
-      }
-    };
+  async setColor(selector) {
+    await this.setValue(this.colorOption, selector, 'Color option is unavailable');
   }
+
+  // async chooseCapacity(selector) {
+  //   let optionPresent = await elementIsPresent(this.capacityOption);
+  //   async () => {
+  //     if (optionPresent == true) {
+  //       browser
+  //         .actions()
+  //         .click(this.capacityOption)
+  //         .mouseMove({ x: 0, y: 20 + 20 * selector })
+  //         .mouseUp()
+  //         .perform();
+  //     } else {
+  //       return await console.log('Storage Capacity option is unavailable');
+  //     }
+  //   };
+  // }
+
+  // async chooseColour(selector) {
+  //   let optionPresent = await elementIsPresent(this.colourOption);
+  //   async () => {
+  //     if (optionPresent == true) {
+  //       browser
+  //         .actions()
+  //         .click(this.colourOption)
+  //         .mouseMove({ x: 0, y: 20 + 20 * selector })
+  //         .mouseUp()
+  //         .perform();
+  //     } else {
+  //       return await console.log('Colour option is unavailable');
+  //     }
+  //   };
+  // }
 
   async clickAddCartButton() {
     await this.cartButton.click();

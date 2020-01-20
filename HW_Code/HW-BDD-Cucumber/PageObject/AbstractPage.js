@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import { elementIsPresent } from '../Helpers/waiters';
 
 class AbstractPage {
   constructor() {}
@@ -13,24 +14,22 @@ class AbstractPage {
     return await expect(title).to.include(keyWord);
   }
 
-  // getTitle() {
-  //   return browser.getTitle();
-  // }
-
-  // switchToFrame(frameLocator) {
-  //   browser.switchTo().frame(frameLocator.getWebElement());
-  // }
-
-  // getAttributeParameter(locator, attributeType, regExp) {
-  //   return locator.getAttribute(attributeType).then(txt => txt.match(regExp)[0]);
-  // }
-
-  // getAttributeParameters(locator, attributeType, regExp) {
-  //   return locator.getAttribute(attributeType).then(txt => txt.match(regExp));
-  // }
-  // switchToPageFrame() {
-  //   browser.switchTo().defaultContent();
-  // }
+  async setValue(locator, selector, message) {
+    let optionPresent = expect(await elementIsPresent(locator)).to.be.true;
+    console.log(optionPresent);
+    if (optionPresent == true) {
+      let y = 18 + 18 * selector;
+      await browser
+        .actions()
+        .click(locator)
+        .mouseMove({ x: 0, y: y })
+        .mouseDown()
+        .mouseUp()
+        .perform();
+    } else {
+      return console.log(message);
+    }
+  }
 }
 
 export default AbstractPage;
