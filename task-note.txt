@@ -1,0 +1,15 @@
+Unit 10
+
+Add ability to choose browser or browser window size from command line:
+1. Modified conf.js file;
+2. Usig prompt command:
+
+for example:
+
+npm run test -- --specs="HW_Code/HW-Actions_PO/perform_test.js" --browser="chrome" --capabilities.chromeOptions.args="--window-size=1600,1200"
+
+npm run - standart command run task by npm;
+test - run "test" parth into package.json cfg file that start protractor with task;
+-- --specs - set specs that will be started by Protractor;
+--browser - set browser that will be used for task like chrome, firefox etc;
+--capabilities.chromeOptions.args - set browser window size for chrome.
