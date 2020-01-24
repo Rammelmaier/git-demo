@@ -12,4 +12,4 @@ function sendRestRequest(URI, method) {
   });
 }
 
-export default sendRestRequest();
+export { sendRestRequest };
