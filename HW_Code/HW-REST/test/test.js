@@ -1,6 +1,5 @@
 const expect = require('chai').expect;
 const request = require('request-promise');
-// import { counter } from '../Helpers/counter';
 
 function sendRestRequest(method) {
   var options = {
@@ -13,14 +12,6 @@ function sendRestRequest(method) {
     return response;
   });
 }
-
-let counter = function(array) {
-  let n = 0;
-  for (let i = 0; i < array.length; i++) {
-    return (n += 1);
-  }
-  return n;
-};
 
 describe('REST Test - Checking REST-response', function() {
   describe('Checking Status-code', async function() {
@@ -49,8 +40,6 @@ describe('REST Test - Checking REST-response', function() {
     it('body must contain array from 10 Users', async function() {
       return await sendRestRequest('GET').then(function(response) {
         let array = JSON.parse(response.body);
-        // console.log(array);
-        // expect(counter(array)).to.equal(10);
         expect(array.length).to.equal(10);
         console.log(array.length);
       });
@@ -59,4 +48,4 @@ describe('REST Test - Checking REST-response', function() {
 });
 
 // run it!
-//npm run rest-mocha
+//npm run test-mocha
