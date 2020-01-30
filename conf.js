@@ -6,9 +6,9 @@ exports.config = {
   framework: 'jasmine',
   capabilities: {
     browserName: 'chrome',
-    chromeOptions: {
-      args: [''],
-    },
+    // chromeOptions: {
+    //   args: [''],
+    // },
   },
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   directConnect: true,
@@ -16,4 +16,5 @@ exports.config = {
   specs: [''],
   // specs: ['HW_Code/**/tests/**/*.js'],
   SELENIUM_PROMISE_MANAGER: true,
+  // SELENIUM_PROMISE_MANAGER: false,
 };
