@@ -1,7 +1,10 @@
 import { waitForVisibleElement } from '../../helpers/waiters';
+import AbstractPage from './AbstractPage';
 
-class InboxPage {
-  constructor() {}
+class InboxPage extends AbstractPage {
+  constructor() {
+    super();
+  }
 
   get inboxItem() {
     return $('a[title="Inbox"]');
@@ -15,25 +18,28 @@ class InboxPage {
     return text => element(by.xpath(`//span[contains(text(), "${text}")]`));
   }
 
-  loggedToInboxSuccesful() {
-    waitForVisibleElement(this.inboxItem, 'Inbox element');
-    expect(this.inboxItem.isPresent()).toBeTruthy();
+  async loggedToInboxSuccesful() {
+    await waitForVisibleElement(this.inboxItem, 'Inbox element');
+    await this.highlightElement(this.inboxItem);
+    await expect(await this.inboxItem.isPresent()).toBeTruthy();
   }
 
-  clickComposeButton() {
-    this.composeButton.click();
+  async clickComposeButton() {
+    await this.highlightElement(this.composeButton);
+    await this.composeButton.click();
   }
 
-  checkingVisibilityMailInbox(text) {
-    waitForVisibleElement(this.incomeMail(text), 'Inbox message');
-    expect(this.incomeMail(text).isPresent()).toBeTruthy();
+  async checkingVisibilityMailInbox(text) {
+    await waitForVisibleElement(this.incomeMail(text), 'Inbox message');
+    this.highlightElement(this.incomeMail(text));
+    await expect(await this.incomeMail(text).isPresent()).toBeTruthy();
   }
 
-  checkingMailText(text) {
-    const mailText = this.incomeMail(text)
+  async checkingMailText(text) {
+    const mailText = await this.incomeMail(text)
       .getText()
       .then(txt => txt.match(/\d+/)[0]);
-    expect(mailText).toEqual(text);
+    await expect(await mailText).toEqual(text);
   }
 }
 export default new InboxPage();

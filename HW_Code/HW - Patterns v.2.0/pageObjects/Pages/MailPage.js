@@ -1,7 +1,10 @@
 import { waitForVisibleElement } from '../../helpers/waiters';
+import AbstractPage from './AbstractPage';
 
-class MailPage {
-  constructor() {}
+class MailPage extends AbstractPage {
+  constructor() {
+    super();
+  }
 
   get sendTo() {
     return element(by.name('to'));
@@ -19,20 +22,20 @@ class MailPage {
     return $('div[aria-label="Send ‪(Ctrl-Enter)‬"]');
   }
 
-  enterDataTo(enterRecipient) {
-    this.sendTo.sendKeys(enterRecipient);
+  async enterDataTo(enterRecipient) {
+    await this.sendTo.sendKeys(enterRecipient);
   }
 
-  enterDataSubject(enterSubject) {
-    this.subjectBox.sendKeys(enterSubject);
+  async enterDataSubject(enterSubject) {
+    await this.subjectBox.sendKeys(enterSubject);
   }
 
-  enterMessage(message) {
-    this.mailBody.sendKeys(message);
+  async enterMessage(message) {
+    await this.mailBody.sendKeys(message);
   }
 
-  clickSendButton() {
-    this.sendButton.click();
+  async clickSendButton() {
+    await this.sendButton.click();
   }
 }
 export default new MailPage();

@@ -4,8 +4,8 @@ import PageFactory from './pageObjects/PageFactory';
 const log4js = require('log4js');
 log4js.configure({
   appenders: {
-    logFile: { type: 'datefile', filename: '../../logs/log.log' },
-    errorLog: { type: 'datefile', filename: '../../logs/error.log' },
+    logFile: { type: 'datefile', filename: '../../statistic/logs/main.log' },
+    errorLog: { type: 'datefile', filename: '../../statistic/logs/error.log' },
     console: { type: 'console' },
   },
 
@@ -64,12 +64,15 @@ describe('Test send mail with Protractor', async function() {
     await USE.INBOX_PAGE.loggedToInboxSuccesful();
   });
 
-  it('should send mail to itself', function() {
-    USE.INBOX_PAGE.clickComposeButton();
-    USE.MAIL_PAGE.enterDataTo(MAIL.SEND_TO);
-    USE.MAIL_PAGE.enterDataSubject(MAIL.SUBJECT);
-    USE.MAIL_PAGE.enterMessage(MAIL.MESSAGE);
-    USE.MAIL_PAGE.clickSendButton();
-    USE.INBOX_PAGE.checkingVisibilityMailInbox(MAIL.MESSAGE);
+  it('should send mail to itself', async function() {
+    await USE.INBOX_PAGE.clickComposeButton();
+    await USE.MAIL_PAGE.enterDataTo(MAIL.SEND_TO);
+    await USE.MAIL_PAGE.enterDataSubject(MAIL.SUBJECT);
+    await USE.MAIL_PAGE.enterMessage(MAIL.MESSAGE);
+    await USE.MAIL_PAGE.clickSendButton();
+    await USE.INBOX_PAGE.checkingVisibilityMailInbox(MAIL.MESSAGE);
   });
 });
+
+// run it!
+// $ npm run test -- --specs="HW_Code/HW - Patterns v.2.0/mailTest.js"
