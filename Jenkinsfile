@@ -2,12 +2,16 @@ pipeline {
   agent any
     
   tools {nodejs "NodeJS"}
+  
+   parameters {
+    gitParameter branchFilter: 'origin/(.*)', defaultValue: 'logger', name: 'BRANCH', type: 'PT_BRANCH'
+  }
     
   stages {
         
-    stage('Cloning Git') {
+    stage('Cloning Git and checkout on logger branch') {
       steps {
-         git 'https://github.com/Rammelmaier/git-demo.git'
+         git branch: "${params.BRANCH}", url: 'https://github.com/Rammelmaier/git-demo.git'
       }
     }
         
@@ -19,7 +23,7 @@ pipeline {
      
     stage('Running test') {
       steps {
-         sh 'npm run test-mocha'
+         sh 'npm run test -- --specs="HW_Code/HW - Patterns v.2.0/mailTest.js'
       }
     }      
   }
