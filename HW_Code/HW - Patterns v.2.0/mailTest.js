@@ -1,23 +1,5 @@
 import PageFactory from './pageObjects/PageFactory';
-
-// LOGGER
-const log4js = require('log4js');
-log4js.configure({
-  appenders: {
-    logFile: { type: 'datefile', filename: '../../statistic/logs/main.log' },
-    errorLog: { type: 'datefile', filename: '../../statistic/logs/error.log' },
-    console: { type: 'console' },
-  },
-
-  categories: {
-    default: { appenders: ['logFile', 'console'], level: 'info' },
-    error: { appenders: ['errorLog'], level: 'error' },
-  },
-});
-
-const logger = log4js.getLogger();
-
-// LOGGER END
+import { logger } from './log4js/logger';
 
 const URL = 'https://gmail.com';
 const EXPECT_BROWSER_TITLE = 'Gmail';

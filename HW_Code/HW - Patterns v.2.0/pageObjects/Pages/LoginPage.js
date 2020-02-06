@@ -1,25 +1,7 @@
 import { waitForVisibleElement } from '../../helpers/waiters';
 import { element, browser } from 'protractor';
 import AbstractPage from './AbstractPage';
-
-// LOGGER
-const log4js = require('log4js');
-log4js.configure({
-  appenders: {
-    logFile: { type: 'datefile', filename: '../../../../statistic/logs/main1.log' },
-    errorLog: { type: 'datefile', filename: '../../../../statistic/logs/error1.log' },
-    console: { type: 'console' },
-  },
-
-  categories: {
-    default: { appenders: ['logFile', 'console'], level: 'info' },
-    error: { appenders: ['errorLog'], level: 'error' },
-  },
-});
-
-const logger = log4js.getLogger();
-
-// LOGGER END
+import { logger } from '../../log4js/logger';
 
 class LoginPage extends AbstractPage {
   constructor() {

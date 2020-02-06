@@ -6,15 +6,15 @@ pipeline {
     
   tools {nodejs "NodeJS"}
   
-   parameters {
-    gitParameter branchFilter: 'origin/(.*)', defaultValue: 'logger', name: 'BRANCH', type: 'PT_BRANCH'
-  }
+  //  parameters {
+  //   gitParameter branchFilter: 'origin/(.*)', defaultValue: 'logger', name: 'BRANCH', type: 'PT_BRANCH'
+  // }
     
   stages {
         
     stage('Cloning Git and checkout on logger branch') {
       steps {
-         git branch: "${params.BRANCH}", url: 'https://github.com/Rammelmaier/git-demo.git'
+         git branch: "origin/logger", url: 'https://github.com/Rammelmaier/git-demo.git'
       }
     }
         
