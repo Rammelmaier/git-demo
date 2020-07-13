@@ -1,4 +1,5 @@
 import PageFactory from './pageObjects/PageFactory';
+import { logger } from './log4js/logger';
 
 const URL = 'https://gmail.com';
 const EXPECT_BROWSER_TITLE = 'Gmail';
@@ -21,27 +22,39 @@ const USE = {
   MAIL_PAGE: PageFactory.getPage('MailPage'),
 };
 
-describe('Test send mail with Protractor', function() {
-  it('chrome should open login page', function() {
-    browser.waitForAngularEnabled(false);
-    USE.STEPS.openPage(URL);
-    expect(browser.getTitle()).toEqual(EXPECT_BROWSER_TITLE);
+describe('Test send mail with Protractor', async function() {
+  logger.info('Running test for sending mail with Protractor');
+
+  it('chrome should open login page', async function() {
+    logger.info('Chrome should open login page');
+    await browser.waitForAngularEnabled(false);
+    logger.info('Turning off AngularJS');
+    await USE.STEPS.openPage(URL);
+    logger.info('Protractor opens LogIn Page');
+    await expect(await browser.getTitle()).toEqual(EXPECT_BROWSER_TITLE);
+    let browserGetTitle = browser.getTitle();
+    browserGetTitle.then(function(txt) {
+      logger.info(`Browser Title toEqual: ${txt}`);
+    });
   });
 
-  it('should input credentials and login', function() {
-    USE.LOGIN_PAGE.enterLogin(CREDENTIALS.LOGIN);
-    USE.LOGIN_PAGE.clickLoginNext();
-    USE.LOGIN_PAGE.enterPassword(CREDENTIALS.PASSWORD);
-    USE.LOGIN_PAGE.clickPasswordNext();
-    USE.INBOX_PAGE.loggedToInboxSuccesful();
+  it('should input credentials and login', async function() {
+    await USE.LOGIN_PAGE.enterLogin(CREDENTIALS.LOGIN);
+    await USE.LOGIN_PAGE.clickLoginNext();
+    await USE.LOGIN_PAGE.enterPassword(CREDENTIALS.PASSWORD);
+    await USE.LOGIN_PAGE.clickPasswordNext();
+    await USE.INBOX_PAGE.loggedToInboxSuccesful();
   });
 
-  it('should send mail to itself', function() {
-    USE.INBOX_PAGE.clickComposeButton();
-    USE.MAIL_PAGE.enterDataTo(MAIL.SEND_TO);
-    USE.MAIL_PAGE.enterDataSubject(MAIL.SUBJECT);
-    USE.MAIL_PAGE.enterMessage(MAIL.MESSAGE);
-    USE.MAIL_PAGE.clickSendButton();
-    USE.INBOX_PAGE.checkingVisibilityMailInbox(MAIL.MESSAGE);
+  it('should send mail to itself', async function() {
+    await USE.INBOX_PAGE.clickComposeButton();
+    await USE.MAIL_PAGE.enterDataTo(MAIL.SEND_TO);
+    await USE.MAIL_PAGE.enterDataSubject(MAIL.SUBJECT);
+    await USE.MAIL_PAGE.enterMessage(MAIL.MESSAGE);
+    await USE.MAIL_PAGE.clickSendButton();
+    await USE.INBOX_PAGE.checkingVisibilityMailInbox(MAIL.MESSAGE);
   });
 });
+
+// run it!
+// $ npm run test -- --specs="HW_Code/HW - Patterns v.2.0/mailTest.js"

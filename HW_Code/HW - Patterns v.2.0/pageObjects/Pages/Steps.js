@@ -1,8 +1,8 @@
 class Steps {
   constructor() {}
 
-  openPage(source) {
-    browser.get(source);
+  async openPage(source) {
+    await browser.get(source);
   }
 }
 
